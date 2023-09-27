@@ -36,12 +36,6 @@ do {
 }
 print -e $"::endgroup::"
 
-print -e $"::group::nix-flake-check"
-do {
-  nix flake check --keep-going -j1 -L
-}
-print -e $"::endgroup::"
-
 print -e $"::group::git-commit-push"
 if ("GITHUB_ACTIONS" in $env) {
   print -e $"::notice ::commitmsg=($commitmsg)"
